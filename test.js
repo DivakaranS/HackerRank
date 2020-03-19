@@ -1459,8 +1459,8 @@
 // 	return jumps;
 // }
 // console.log(jumpingOnClouds(c))
-let s='babbaabbabaababaaabbbbbbbababbbabbbababaabbbbaaaaabbaababaaabaabbabababaabaabbbababaabbabbbababbaabb'
-let n=860622337747
+// let s='babbaabbabaababaaabbbbbbbababbbabbbababaabbbbaaaaabbaababaaabaabbabababaabaabbbababaabbabbbababbaabb'
+// let n=860622337747
 // let s='epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq'
 // let n=549382313570
 // let s='ojowrdcpavatfacuunxycyrmpbkvaxyrsgquwehhurnicgicmrpmgegftjszgvsgqavcrvdtsxlkxjpqtlnkjuyraknwxmnthfpt'
@@ -1473,36 +1473,90 @@ let n=860622337747
 // let n=547602;
 // let s='a';
 // let n=10000000;
-console.log(s.length)
-function repeatedString(s, n) {
-     	let count=0;
-		if(s.length==1){
-			return s.includes('a') ? n : 0;
-		}
-	for(var i=0;i<s.length;i++){
-		if(s[i]=='a'){
-			count +=1;
-		}
-	}
-	console.log(count);
-	if(s[0]!='a'){
-   	let repeat=n/s.length;
-   	if((repeat%1)>0.4){
-   		console.log(repeat)
-   		let fix=parseFloat(repeat.toFixed(1));
-   		console.log(fix)
-   	return Math.ceil(fix*count)	
-   }else{
-	return Math.floor(repeat*count);
-   }
-	}else{
-	return Math.round(n/s.length*count);
-	}
+// console.log(s.length)
+// function repeatedString(s, n) {
+//      	let count=0;
+// 		if(s.length==1){
+// 			return s.includes('a') ? n : 0;
+// 		}
+// 	for(var i=0;i<s.length;i++){
+// 		if(s[i]=='a'){
+// 			count +=1;
+// 		}
+// 	}
+// 	console.log(count);
+// 	if(s[0]!='a'){
+//    	let repeat=n/s.length;
+//    	if((repeat%1)>0.4){
+//    		console.log(repeat)
+//    		let fix=parseFloat(repeat.toFixed(1));
+//    		console.log(fix)
+//    	return Math.ceil(fix*count)	
+//    }else{
+// 	return Math.floor(repeat*count);
+//    }
+// 	}else{
+// 	return Math.round(n/s.length*count);
+// 	}
 
+// }
+
+// console.log(repeatedString(s,n));
+
+// let s='www.abc.xy,zhH';
+// let k=87;
+
+
+
+// function caesarCipher(s, k) {
+//  let cipher='';
+//  for(var i=0;i<s.length;i++){
+//     let char=s.charCodeAt(i)
+
+//     if(char >=65 && char <=90){
+//         if(char+(k%26) <91){
+//             cipher +=String.fromCharCode(char+(k%26))
+//         }else{
+//             cipher +=String.fromCharCode(char-26+(k%26))
+//         }
+//     }
+//     else if(char >= 97 && char <= 122 ){
+
+//        if(char+(k%26) < 123){
+
+//         cipher +=String.fromCharCode(char+(k%26));
+//     }
+//     else{
+//         cipher +=String.fromCharCode(char-26+(k%26));
+//     }
+// }
+// else{
+//     cipher +=s[i];
+// }
+// }
+// return cipher;
+
+// }
+
+// console.log(caesarCipher(s,k));
+
+let s='SOSSPSSQSSOR';
+
+function marsExploration(s) {
+   let radiation=0;
+   var i=0
+   for(i;i<s.length){
+console.log(i);
+        // if(s[i]!='O' && s[i]!='S'){
+        //     radiation +=1;
+        // }
+        i+3;   
+    }
+    return radiation;
 }
 
-console.log(repeatedString(s,n));
 
+console.log(marsExploration(s));
 
 
 
