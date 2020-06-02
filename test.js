@@ -1936,34 +1936,60 @@
 
 // ** sherlock and Anagrams  ** //
 
-let s='abba';
+// let s='abba';
 
-function sherlockAndAnagrams (s){
-	let count=0;
+// function sherlockAndAnagrams (s){
+// 	let count=0;
 
-	for(var i=1;i<s.length;i++){
+// 	for(var i=1;i<s.length;i++){
 
-		var found={};
-		for(var j=0;j+i<=s.length;j++){
+// 		var found={};
+// 		for(var j=0;j+i<=s.length;j++){
 
-			let substr = s.substr(j, i);
-			substr=substr.split('').sort().join('');
-			if(found[substr]){
-				count +=found[substr];
-				found[substr]++;
-			}else{
-				found[substr] =1;
-			}
-		}
-	}
-	return count;
+// 			let substr = s.substr(j, i);
+// 			substr=substr.split('').sort().join('');
+// 			if(found[substr]){
+// 				count +=found[substr];
+// 				found[substr]++;
+// 			}else{
+// 				found[substr] =1;
+// 			}
+// 		}
+// 	}
+// 	return count;
+// }
+
+// console.log(sherlockAndAnagrams(s));
+
+
+
+// ** Count Triplets ** //
+
+
+let arr=[1,3,9,9,27,81];
+let r=3;
+
+function countTriplets(arr, r) {
+	let triplets=0;
+	let temp={};
+	let temp1={};
+	arr.forEach(val=>{
+		if(temp1.hasOwnProperty(val))
+			triplets += temp1[val];
+		
+		if(temp.hasOwnProperty(val))
+			temp1[val*r] = (temp1[val*r] += temp[val]) || temp[val];
+
+			temp[val*r] = (temp[val*r] += 1) || 1;
+		
+
+	})
+
+	return triplets;
+
 }
 
-console.log(sherlockAndAnagrams(s));
-
-
-
-
+console.log(countTriplets(arr, r));
 
 
 
