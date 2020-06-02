@@ -1787,30 +1787,262 @@
 
 // ** Minimum Swaps 2 ** //
 
-let arr=[2,31,1,38,29,5,44,6,12,18,39,9,48,49,13,11,7,27,14,33,50,21,46,23,15,26,8,47,40,3,32,22,34,42,16,41,24,10,4,28,36,30,37,35,20,17,45,43,25,19]
+// let arr=[2,31,1,38,29,5,44,6,12,18,39,9,48,49,13,11,7,27,14,33,50,21,46,23,15,26,8,47,40,3,32,22,34,42,16,41,24,10,4,28,36,30,37,35,20,17,45,43,25,19]
 
-function minimumSwaps(arr) {
+// function minimumSwaps(arr) {
 
-	let numOfSwaps=0;
-	// let i=0;
+// 	let numOfSwaps=0;
+// 	// let i=0;
 
-	for(var i=0;i<arr.length;i++){
-		// if(i+1 == arr[i]){
-		// 	i++;
-		// }
-		while(i+1 !== arr[i]){
-			let temp=arr[arr[i] - 1];
-			arr[arr[i] -1]=arr[i];
-			arr[i]=temp;
-			numOfSwaps +=1;
+// 	for(var i=0;i<arr.length;i++){
+// 		// if(i+1 == arr[i]){
+// 		// 	i++;
+// 		// }
+// 		while(i+1 !== arr[i]){
+// 			let temp=arr[arr[i] - 1];
+// 			arr[arr[i] -1]=arr[i];
+// 			arr[i]=temp;
+// 			numOfSwaps +=1;
+// 		}
+
+// 	}
+// 	return numOfSwaps;
+
+// }
+
+// console.log(minimumSwaps(arr));
+
+// ** Array Manipulation ** //
+
+
+
+// let queries=[[1,2,100],
+// [2,5,100],
+// [3,4,100]];
+// let n=5;
+
+// function arrayManipulation(n, queries){
+
+// 	let arr = new Array(n).fill(0);
+
+// 	let max = 0;
+
+// 	for(var i=queries.length-1;i>=0;i--){
+// 		const [a,b,k] = queries[i];
+// 		console.log(a,b,k)
+// 		arr[a-1] += k;
+// 		if(b<arr.length){
+// 			arr[b] -=k;
+// 		}
+
+// 	}
+
+
+// 	for(var j=1;j<n;j++){
+
+// 		arr[j] +=arr[j-1];
+// 	}
+
+// 	console.log(arr);
+
+// 	for(var k=arr.length-1;k>=0;k--){
+// 		max = Math.max(max,arr[k]);
+// 	}
+
+// 	return max;
+// 	// console.log(array);
+// 	// for(var i=0;i<queries.length;i++){
+// 	// 	console.log(queries[0]-1)
+// 	// 	let a=queries[0]-1;
+// 	// 	let b=queries[1];
+// 	// 	let k=queries[2]
+
+// // queries.forEach(([a, b, k]) => {
+// //          // for (var j = a - 1; j < b; j++) {
+// //          	console.log(a,b,k);
+// // 	 	array[a] +=k;
+// // 		array[b] -=k;
+// // 	// }
+// // });
+// // console.log(array)
+// // 	let max_value=0;
+// // 	let count=0;
+// // 	for(var j=0;j<array.length;j++){
+// // 		count +=array[j];
+// // 		if(count > max_value){
+// // 			max_value=count;
+// // 		}
+// // 	}
+
+// // // console.log(array);
+// //     // return Math.max.apply(null,array);
+
+// // 	return max_value;
+
+// }
+// console.log(arrayManipulation(n,queries))
+
+// ** Hash Tables: Ransom Note ** //
+
+// let magazine=['give','me','one','grand','today','night'];
+// let note=['give','one','grand','today'];
+
+// let magazine='apgo clm w lxkvg mwz elo bg elo lxkvg elo apgo apgo w elo bg';
+// let note='elo lxkvg bg mwz clm w';
+
+// function checkMagazine(magazine, note) {
+// 	let result =0;
+// 	let arr1=magazine.split(' ');
+// 	let arr2=note.split(' ');
+// 	let index;
+// 	// arr1.forEach(ele=>{
+// 	// 	arr2.forEach((ele1,idx)=>{
+// 	// 		console.log(idx);
+// 	// 		if(ele==ele1 && check !=ele1){
+// 	// 			result +=1;
+// 	// 			check=ele1;
+// 	// 			let index=arr1.indexOf(ele1);
+// 	// 			if(index >-1){
+// 	// 				arr1.splice(index,1);
+// 	// 			}
+// 	// 		}
+// 	// 	})
+// 	// })
+// 	for(var i=0;i<arr2.length;i++){
+
+// 		if(arr1.includes(arr2[i])){
+// 		console.log(arr1,arr2[i],index);
+
+// 			result='Yes';
+// 			index=arr1.indexOf(arr2[i]);
+// 			if(index>-1){
+// 				arr1.splice(index,1);
+// 			}
+// 		}else{
+// 			result='No';
+// 			break;
+// 		}
+// 	}
+// 	console.log(result)
+// }
+
+
+
+
+// console.log(checkMagazine(magazine,note));
+
+
+
+
+// ** sherlock and Anagrams  ** //
+
+let s='abba';
+
+function sherlockAndAnagrams (s){
+	let count=0;
+
+	for(var i=1;i<s.length;i++){
+
+		var found={};
+		for(var j=0;j+i<=s.length;j++){
+
+			let substr = s.substr(j, i);
+			substr=substr.split('').sort().join('');
+			if(found[substr]){
+				count +=found[substr];
+				found[substr]++;
+			}else{
+				found[substr] =1;
+			}
 		}
-		
 	}
-	return numOfSwaps;
-
+	return count;
 }
 
-console.log(minimumSwaps(arr));
+console.log(sherlockAndAnagrams(s));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
